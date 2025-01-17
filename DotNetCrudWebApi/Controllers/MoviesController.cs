@@ -1,6 +1,5 @@
 ﻿using DotNetCrudWebApi.Data;
 using DotNetCrudWebApi.Movies;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

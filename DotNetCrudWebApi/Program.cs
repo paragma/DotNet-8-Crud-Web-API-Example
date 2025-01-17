@@ -1,5 +1,4 @@
 using DotNetCrudWebApi.Data;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
