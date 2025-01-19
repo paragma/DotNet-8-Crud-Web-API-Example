@@ -20,7 +20,8 @@ namespace DotNetCrudWebApi.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "text", nullable: true),
                     Genre = table.Column<string>(type: "text", nullable: true),
-                    ReleaseDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    ReleaseDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Language = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
