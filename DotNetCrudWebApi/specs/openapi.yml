@@ -3,136 +3,136 @@ info:
   title: DotNetCrudWebApi
   version: '1.0'
 paths:
-  "/api/Movies":
+  /api/Movies:
     get:
       tags:
-      - Movies
+        - Movies
       responses:
         '200':
-          description: Success
+          description: OK
           content:
             text/plain:
               schema:
                 type: array
                 items:
-                  "$ref": "#/components/schemas/MovieModel"
+                  $ref: '#/components/schemas/MovieModel'
             application/json:
               schema:
                 type: array
                 items:
-                  "$ref": "#/components/schemas/MovieModel"
+                  $ref: '#/components/schemas/MovieModel'
             text/json:
               schema:
                 type: array
                 items:
-                  "$ref": "#/components/schemas/MovieModel"
+                  $ref: '#/components/schemas/MovieModel'
     post:
       tags:
-      - Movies
+        - Movies
       requestBody:
         content:
           application/json:
             schema:
-              "$ref": "#/components/schemas/MovieModel"
+              $ref: '#/components/schemas/MovieModel'
           text/json:
             schema:
-              "$ref": "#/components/schemas/MovieModel"
+              $ref: '#/components/schemas/MovieModel'
           application/*+json:
             schema:
-              "$ref": "#/components/schemas/MovieModel"
+              $ref: '#/components/schemas/MovieModel'
       responses:
         '200':
-          description: Success
+          description: OK
           content:
             text/plain:
               schema:
-                "$ref": "#/components/schemas/MovieModel"
+                $ref: '#/components/schemas/MovieModel'
             application/json:
               schema:
-                "$ref": "#/components/schemas/MovieModel"
+                $ref: '#/components/schemas/MovieModel'
             text/json:
               schema:
-                "$ref": "#/components/schemas/MovieModel"
+                $ref: '#/components/schemas/MovieModel'
     put:
       tags:
-      - Movies
+        - Movies
       parameters:
-      - name: id
-        in: query
-        schema:
-          type: integer
-          format: int32
+        - name: id
+          in: query
+          schema:
+            type: integer
+            format: int32
       requestBody:
         content:
           application/json:
             schema:
-              "$ref": "#/components/schemas/MovieModel"
+              $ref: '#/components/schemas/MovieModel'
           text/json:
             schema:
-              "$ref": "#/components/schemas/MovieModel"
+              $ref: '#/components/schemas/MovieModel'
           application/*+json:
             schema:
-              "$ref": "#/components/schemas/MovieModel"
+              $ref: '#/components/schemas/MovieModel'
       responses:
         '200':
-          description: Success
+          description: OK
           content:
             text/plain:
               schema:
-                "$ref": "#/components/schemas/MovieModel"
+                $ref: '#/components/schemas/MovieModel'
             application/json:
               schema:
-                "$ref": "#/components/schemas/MovieModel"
+                $ref: '#/components/schemas/MovieModel'
             text/json:
               schema:
-                "$ref": "#/components/schemas/MovieModel"
-  "/api/Movies/{id}":
+                $ref: '#/components/schemas/MovieModel'
+  '/api/Movies/{id}':
     get:
       tags:
-      - Movies
+        - Movies
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int32
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
       responses:
         '200':
-          description: Success
+          description: OK
           content:
             text/plain:
               schema:
-                "$ref": "#/components/schemas/MovieModel"
+                $ref: '#/components/schemas/MovieModel'
             application/json:
               schema:
-                "$ref": "#/components/schemas/MovieModel"
+                $ref: '#/components/schemas/MovieModel'
             text/json:
               schema:
-                "$ref": "#/components/schemas/MovieModel"
+                $ref: '#/components/schemas/MovieModel'
     delete:
       tags:
-      - Movies
+        - Movies
       parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-          format: int32
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
       responses:
         '200':
-          description: Success
+          description: OK
           content:
             text/plain:
               schema:
-                "$ref": "#/components/schemas/MovieModel"
+                $ref: '#/components/schemas/MovieModel'
             application/json:
               schema:
-                "$ref": "#/components/schemas/MovieModel"
+                $ref: '#/components/schemas/MovieModel'
             text/json:
               schema:
-                "$ref": "#/components/schemas/MovieModel"
+                $ref: '#/components/schemas/MovieModel'
 components:
   schemas:
     MovieModel:
@@ -150,4 +150,7 @@ components:
         releaseDate:
           type: string
           format: date-time
+        language:
+          type: string
+          nullable: true
       additionalProperties: false
