@@ -16,7 +16,7 @@ namespace DotNetCrudWebApi.Controllers
             _appDbContext = AppDbContext;
         }
 
-        // Get : api/Movies
+        // Get api : api/Movies
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MovieModel>>> GetMovies()
         {
@@ -27,7 +27,7 @@ namespace DotNetCrudWebApi.Controllers
             return await _appDbContext.Movies.ToListAsync();
         }
 
-        // Get : api/Movies/2
+        // Get api : api/Movies/2
         [HttpGet("{id}")]
         public async Task<ActionResult<MovieModel>> GetMovie(int id)
         {
@@ -43,7 +43,7 @@ namespace DotNetCrudWebApi.Controllers
             return movie;
         }
 
-        // Post : api/Movies
+        // Post api : api/Movies
         [HttpPost]
         public async Task<ActionResult<MovieModel>> PostMovie(MovieModel movie)
         {
@@ -52,7 +52,7 @@ namespace DotNetCrudWebApi.Controllers
             return CreatedAtAction(nameof(GetMovie), new { id = movie.Id }, movie);
         }
 
-        // Put : api/Movies/2
+        // Put api : api/Movies/2
         [HttpPut]
         public async Task<ActionResult<MovieModel>> PutMovie(int id, MovieModel movie)
         {
@@ -79,12 +79,13 @@ namespace DotNetCrudWebApi.Controllers
             return NoContent();
         }
 
-        private bool MovieExists(long id)
+        // Check if movie with the id already exists in the database.
+        private bool MovieExists(int id)
         {
             return (_appDbContext.Movies?.Any(movie => movie.Id == id)).GetValueOrDefault();
         }
 
-        // Delete : api/Movies/2
+        // Delete api : api/Movies/2
         [HttpDelete("{id}")]
         public async Task<ActionResult<MovieModel>> DeleteMovie(int id)
         {
