@@ -20,9 +20,9 @@ namespace DotNetCrudWebApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MovieModel>>> GetMovies()
         {
-            if (_appDbContext.Movies == null)
+            if (_appDbContext.Movies is null)
             {
-                return NotFound();
+                return NotFound("No Movies found.");
             }
             return await _appDbContext.Movies.ToListAsync();
         }
@@ -33,12 +33,12 @@ namespace DotNetCrudWebApi.Controllers
         {
             if (_appDbContext.Movies is null)
             {
-                return NotFound();
+                return NotFound("No Movies found.");
             }
             var movie = await _appDbContext.Movies.FindAsync(id);
             if (movie is null)
             {
-                return NotFound();
+                return NotFound($"Movie with id {id} not found.");
             }
             return movie;
         }
@@ -69,7 +69,7 @@ namespace DotNetCrudWebApi.Controllers
             {
                 if (!MovieExists(id))
                 {
-                    return NotFound();
+                    return NotFound($"Movie with id {id} not found.");
                 }
                 else
                 {
@@ -91,12 +91,12 @@ namespace DotNetCrudWebApi.Controllers
         {
             if (_appDbContext.Movies is null)
             {
-                return NotFound();
+                return NotFound("No Movies found.");
             }
             var movie = await _appDbContext.Movies.FindAsync(id);
             if (movie is null)
             {
-                return NotFound();
+                return NotFound($"Movie with id {id} not found.");
             }
             _appDbContext.Movies.Remove(movie);
             await _appDbContext.SaveChangesAsync();
