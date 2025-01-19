@@ -80,7 +80,7 @@ namespace DotNetCrudWebApi.Controllers
         }
 
         // Check if movie with the id already exists in the database.
-        private bool MovieExists(long id)
+        private bool MovieExists(int id)
         {
             return (_appDbContext.Movies?.Any(movie => movie.Id == id)).GetValueOrDefault();
         }
